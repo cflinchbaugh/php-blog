@@ -6,6 +6,33 @@
 <main>
     <h1>Signup</h1>
 
+    <?php
+        if (isset($_GET['error'])) {
+            switch ($_GET['error']) {
+                case 'emptyfields':
+                    echo "Error: Please fill in all fields";
+                    break;
+                case "invalidUsername":
+                    echo "Error: Invalid Username";
+                    break;
+                case "invalidEmail":
+                    echo "Error: Invalid Email";
+                    break;
+                case "passwordRepeat":
+                    echo "Error: Passwords do not match";
+                    break;
+                case "usernameTaken":
+                    echo "Error: Username taken";
+                    break;
+                default:
+                    echo "Error";
+                    break;
+            }
+        } else if ($_GET['signup'] === 'success') {
+            echo "Signup success!";
+        }
+    ?> 
+
     <form action="includes/signup.php" method="post">
         <?php
             $username = isset($_GET['username']) ? $_GET['username'] : "";
