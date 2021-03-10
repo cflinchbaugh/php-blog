@@ -18,12 +18,17 @@
         ?>
 
         <main>
-            <h1>Login</h1>
+            
             
             <?php
                 if (isset($_SESSION['user_id'])) {
-                    echo '<p>You are logged in</p>';
+                    echo '<br/><br/><br/>';
+                    echo '<form action="upload.php" method="POST" enctype="multipart/form-data">
+                            <input type="file" name="file-data">
+                            <button type="submit" name="submit">Upload</button>
+                        </form>';
                 } else {
+                    echo '<h1>Login</h1>';
                     echo '<p>You are logged out</p>';
                 }
             ?>
