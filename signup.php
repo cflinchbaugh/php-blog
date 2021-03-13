@@ -28,7 +28,7 @@
                     echo "Error";
                     break;
             }
-        } else if ($_GET['signup'] === 'success') {
+        } else if (isset($_GET['error']) && $_GET['signup'] === 'success') {
             echo "Signup success!";
         }
     ?> 
