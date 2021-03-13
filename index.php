@@ -55,7 +55,7 @@
                         </form>';
                 } else {
                     echo '<h1>Login</h1>';
-                    echo '<p>You are logged out</p>';
+                    echo '<p>You are logged out!</p>';
                 }
             ?>
         </main>
