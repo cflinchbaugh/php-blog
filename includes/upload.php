@@ -1,4 +1,8 @@
 <?php
+    require "../header.php";
+    include_once './dbh.php';
+    $user_id = $_SESSION['user_id'];
+
     if (isset($_POST['submit'])) {
         $file = $_FILES['file-data'];
         $fileName = $file['name'];
@@ -20,12 +24,16 @@
         if (in_array(strtolower($fileExtension), $allowedExtensions)) {
             if ($fileError === 0) {
                 if ($fileSize < $maxFileSizeKb) {
-                    $fileNameUnique = uniqid('', true).".".$fileExtension; //Server name used to avoid conflicts with other user-uplaoded content since this is all stored in the same folder
+                    // $fileNameUnique = uniqid('', true).".".$fileExtension; //Server name used to avoid conflicts with other user-uplaoded content since this is all stored in the same folder
+                    $fileNameUnique = "profile_" . $user_id . "." . $fileExtension; //Server name used to avoid conflicts with other user-uplaoded content since this is all stored in the same folder
 
-                    $fileDestination = "uploads/" . $fileNameUnique;
+                    $fileDestination = "../uploads/" . $fileNameUnique;
                     move_uploaded_file($fileTmpName, $fileDestination); //Actually upload
 
-                    header('Location: index.php?upload=success');
+                    $sql = "UPDATE profile_image SET status=1 WHERE user_id='$user_id';";
+                    $result = mysqli_query($conn, $sql);
+
+                    header('Location: ../index.php?upload=success&userId=' . $user_id);
                 } else {
                     echo "File must not exceed " . $maxFileSizeKb/1000 . "MB";
                 }
@@ -37,5 +45,5 @@
         }
 
     } else {
-        header('Location: index.php?error=noSubmission');
+        header('Location: ../index.php?error=noSubmission');
     }

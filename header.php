@@ -13,27 +13,38 @@
 
 <header>
     <nav>
-        <a href="#">LOGO</a>
+        <!-- <div class="logo-wrapper">
+            <a href="../index.php">LOGO</a>
+        </div> -->
 
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
+        <div class="header-contents">
+            <?php 
+                if (isset($_SESSION['user_id'])) {
+                    echo '
+                    
+                        <ul>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="users.php">Users</a></li>
+                            <!-- <li><a href="#">About</a></li> -->
+                            <!-- <li><a href="#">Contact</a></li> -->
+                        </ul>
 
-        <div>
-            <form action="includes/login.php" method="post">
-                <input type="text" name="user-name" placeholder="Username">
-                <input type="password" name="user-password" placeholder="Password">
-                <button type="submit" name="login-submit">Login</button>
-            </form>
+                        <form action="includes/logout.php" method="post">
+                            <button type="submit" name="logout-submit">Logout ' . $_SESSION['user_name'] . '</button>
+                        </form>
+                    ';
+                } else {
+                    echo '
+                        <form action="includes/login.php" method="post">
+                            <input type="text" name="user-name" placeholder="Username">
+                            <input type="password" name="user-password" placeholder="Password">
+                            <button type="submit" name="login-submit">Login</button>
+                        </form>
 
-            <a href="signup.php">Signup</a>
-            
-            <form action="includes/logout.php" method="post">
-                <button type="submit" name="logout-submit">Logout</button>
-            </form>
+                        <a href="signup.php">Signup</a>
+                    ';
+                }
+            ?>
         </div>
     </nav>
 </header>

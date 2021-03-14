@@ -1,0 +1,33 @@
+html {
+    background-color: #f3f3f3;
+}
+
+.logo-wrapper {
+    display: flex;
+}
+
+.header-contents {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#users-list .user-item {
+    margin-bottom: 5px;
+}
+
+.user-item {
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px;
+}
+
+.user-avatar {
+    border-radius: 100%;
+    width: 100px;
+}
+
+#upload-form {
+    background-color: white;
+    padding: 5px;
+}
