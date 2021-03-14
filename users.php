@@ -1,7 +1,6 @@
 
 <?php
     require "header.php";
-    include_once 'includes/dbh.php';
 ?>
 
     <h2>Users</h2>
@@ -31,3 +30,7 @@
             echo "No Users";
         }
     ?>
+
+<?php
+    require "footer.php";
+?>
