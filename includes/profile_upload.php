@@ -3,7 +3,7 @@
     include_once './dbh.php';
     $user_id = $_SESSION['user_id'];
 
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['submit']) && $user_id) {
         $file = $_FILES['file-data'];
         $fileName = $file['name'];
         $fileTmpName = $file['tmp_name'];
