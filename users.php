@@ -3,8 +3,12 @@
     require "header.php";
 ?>
 
-    <h2>Users</h2>
-    <?php
+<?php
+    if (!isset($_SESSION['user_id'])) {
+        header("Location: ./index.php?error=notLoggedIn");
+    } else {
+        echo "<h2>Users</h2>";
+        
         $sql = "SELECT * FROM users";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) { //if there are results
@@ -13,7 +17,7 @@
                 $id = $row['user_id'];
                 $sqlImage = "SELECT * FROM profile_image WHERE user_id='$id'";
                 $resultImage = mysqli_query($conn, $sqlImage);
-
+    
                 while ($rowImage = mysqli_fetch_assoc($resultImage)) {
                     echo"<div class='user-item'>";
                         if ($rowImage['status'] === '1') {
@@ -29,8 +33,6 @@
         } else {
             echo "No Users";
         }
-    ?>
 
-<?php
-    require "footer.php";
-?>
+        require "footer.php";
+    }
