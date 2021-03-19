@@ -31,3 +31,46 @@ html {
     background-color: white;
     padding: 5px;
 }
+
+body {
+    background-color: #f3f3f3;
+}
+
+h3 {
+    margin: 0;
+}
+
+.articles-wrapper {
+    width: 900px;
+    padding: 0 15px;
+}
+
+.article-wrapper {
+    margin-bottom: 30px;
+    padding: 10px;
+    background: white;
+    border: solid gray 1px;
+    border-radius: 5px;
+}
+
+.article_title {
+    font-weight: bold;
+    font-size: large;
+}
+.article_text {
+    font-size: medium;
+}
+
+.article-info-wrapper {
+    display: flex;
+    align-items: baseline;
+}
+.article_author {
+    font-size: small;
+}
+.article_date {
+    font-size: small;
+}
+.article-separator {
+    margin: 0 10px;
+}

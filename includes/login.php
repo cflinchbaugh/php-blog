@@ -5,6 +5,7 @@
         exit();
     } else {
         require 'dbh.php';
+        require "../header.php"; //Session data
 
         $username = $_POST['user-name'];
         $password = $_POST['user-password'];
@@ -43,8 +44,6 @@
                         
                         exit();
                     } else if ($passwordCheck === true) {
-                        session_start();  //Session initialized in the header file
-
                         $_SESSION['user_id'] = $row['user_id'];
                         $_SESSION['user_name'] = $row['user_name'];
                         $_SESSION['user_email'] = $row['user_email'];

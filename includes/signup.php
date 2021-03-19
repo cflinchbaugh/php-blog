@@ -4,6 +4,7 @@
         header("Location: ../signup.php");
     } else {
         require 'dbh.php';
+        require "../header.php";
 
         $username = $_POST['user-name'];
         $email = $_POST['user-email'];
@@ -149,8 +150,6 @@
         }
 
         function logIn($userId, $username, $email) {
-            session_start();  //Session initialized in the header file
-
             $_SESSION['user_id'] = $userId;
             $_SESSION['user_name'] = $username;
             $_SESSION['user_email'] = $email;

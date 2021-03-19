@@ -27,10 +27,14 @@
                         
                             <ul>
                                 <li><a href="index.php">Home</a></li>
+                                <li><a href="articles.php">Articles</a></li>
                                 <li><a href="users.php">Users</a></li>
-                                <!-- <li><a href="#">About</a></li> -->
-                                <!-- <li><a href="#">Contact</a></li> -->
                             </ul>
+
+                            <form action="search.php" method="POST">
+                                <input type="text" name="search-value" placeholder="Search Articles">
+                                <button type="submit" name="search-submit">Search</button>
+                            </form>
 
                             <form action="includes/logout.php" method="post">
                                 <button type="submit" name="logout-submit">Logout ' . $_SESSION['user_name'] . '</button>
