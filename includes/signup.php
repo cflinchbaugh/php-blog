@@ -66,58 +66,79 @@
                     );
                     exit();
                 } else {
-                    $sql = "INSERT INTO users (user_name, user_email, user_password) values (?, ?, ?)";
+                    function validateKeyUnique($conn, $newUserId) {
+                        $sql = "SELECT * FROM user_id";
+                        $result = mysqli_query($conn, $sql);
+                        $keyExists = false;
 
-                    $stmt = mysqli_stmt_init($conn);
-
-                    if (!mysqli_stmt_prepare($stmt, $sql)) { //Check if SQL is safe/valid
-                        header("Location: ../signup.php?error=sqlerror".
-                            "&username="."$username".
-                            "&email="."$email"
-                        );
-                        
-                        exit();
-                    } else {
-                        //Insert the user
-                        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-                        mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hashedPassword); // Pass in user generated arguments
-                        mysqli_stmt_execute($stmt); //execute
-
-                        //Fetch the new user_id
-                        $sqlGetUserId = "SELECT user_id FROM users WHERE user_name=?";
-                        $stmtGetUserId = mysqli_stmt_init($conn);
-                        if (!mysqli_stmt_prepare($stmtGetUserId, $sqlGetUserId)) {
-                            header("Location: ../signup.php?error=fetchNewUserError"); 
-                            exit();  
-                        } else {
-                            mysqli_stmt_bind_param($stmtGetUserId, "s", $username); // Pass in user generated arguments
-                            mysqli_stmt_execute($stmtGetUserId); //execute
-                            $result = mysqli_stmt_get_result($stmtGetUserId);
-                            $newUserId = '';
-
-                            if ($row = mysqli_fetch_assoc($result)) {
-                                $newUserId = $row['user_id'];
-
-                                $sql = "INSERT INTO profile_image (user_id, status) VALUES ('$newUserId', 0)";
-                                mysqli_query($conn, $sql);
-
-                                header("Location: ../index.php?signup=success".
-                                    "&username="."$username".
-                                    "&email="."$email".
-                                    "&password="."$password"
-                                );
-                                
-                                exit();
-
-                            } else {
-                                header("Location: ../signup.php?signup=error");
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            if ($row["user_id"] === $newUserId) {
+                                $keyExists = true;
+                                break;
                             }
                         }
+
+                        return $keyExists;
                     }
+
+                    function generateKey($conn) {
+                        $randomKey = uniqid('user');
+                        $isUnique = validateKeyUnique($conn, $randomKey);
+
+                        while ($isUnique === true) {
+                            $randomKey = uniqid('user');
+                            $isUnique = validateKeyUnique($conn, $randomKey);
+                        }
+
+                        return $randomKey;
+                    }
+
+                    function insertUser($conn, $userId, $username, $email, $password) {
+                        $sql = "INSERT INTO users (user_id, user_name, user_email, user_password) values (?, ?, ?, ?)";
+
+                        $stmt = mysqli_stmt_init($conn);
+
+                        if (!mysqli_stmt_prepare($stmt, $sql)) { //Check if SQL is safe/valid
+                            header("Location: ../signup.php?error=sqlerror".
+                                "&username="."$username".
+                                "&email="."$email"
+                            );
+                            
+                            exit();
+                        } else {
+                            //Insert the user
+                            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                            mysqli_stmt_bind_param($stmt, "ssss", $userId, $username, $email, $hashedPassword); // Pass in user generated arguments
+                            mysqli_stmt_execute($stmt); //execute
+                        }
+                    }
+
+                    function insertProfileImage($conn, $userId) {
+                        $sql = "INSERT INTO profile_image (user_id, status) VALUES (?, ?)";
+                        $stmt = mysqli_stmt_init($conn);
+                        if (!mysqli_stmt_prepare($stmt, $sql)) { //Check if SQL is safe/valid
+                            header("Location: ../signup.php?error=sqlerror".
+                                "&userId="."$user_id"
+                            );
+                            
+                            exit();
+                        } else {
+                            $profileStatus = 0;
+                            mysqli_query($conn, $sql);
+                            mysqli_stmt_bind_param($stmt, "si", $userId, $profileStatus); // Pass in user generated arguments
+                            mysqli_stmt_execute($stmt); //execute
+                        }
+                    }
+
+                    $userId = generateKey($conn);
+
+                    insertUser($conn, $userId, $username, $email, $password);
+                    insertProfileImage($conn, $userId);
+
                 }
             }
-
         }
+
         mysqli_stmt_close($stmt);
         mysqli_close($conn);
 

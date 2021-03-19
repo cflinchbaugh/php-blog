@@ -5,11 +5,13 @@ Supports uploading files and setting a user profile image.
 Runs on a local database, assumes the following:
 database name: php_procedural_login
 
+varChar(255) unless noted otherwise
+
 table: profile_image
-columns: id (key), user_id, status;
+columns: id (key) int, user_id, status int;
 
 table: users
-columns: user_id (key), user_name, user_email, user_password 
+columns: id (key) int, user_id, user_name, user_email, user_password 
 
 
 
