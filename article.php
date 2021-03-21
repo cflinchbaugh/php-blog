@@ -20,16 +20,11 @@
             return $row['user_name'];
         }
 
-        $title = mysqli_real_escape_string($conn, $_GET['title']);
-        $publishDate = mysqli_real_escape_string($conn, $_GET['date']);
-
+        $articleId = mysqli_real_escape_string($conn, $_GET['id']);
         $sql = "SELECT * FROM article WHERE
-            article_title= '$title' AND
-            article_date='$publishDate'";
+            article_id='$articleId'";
         $result = mysqli_query($conn, $sql);
-        $queryResults = mysqli_num_rows($result);
-
-        
+        $queryResults = mysqli_num_rows($result);      
 
         if ($queryResults) {
             while ($row = mysqli_fetch_assoc($result)) {

@@ -30,7 +30,9 @@
                 $author = getUserName($conn, $row['article_author']);
 
                 echo '<div class="article-wrapper">
-                        <a href="article.php?title=' . $row['article_title'] . '&date=' . $row['article_date'] .'">  
+                        <a href="article.php?id=' . $row['article_id'] .
+                            '&title=' . $row['article_title'] .
+                        '">
                             <h3>' . $row['article_title'] . '</h3>
                         </a>
                         <div class="article_text">' . $row['article_text'] . '</div>

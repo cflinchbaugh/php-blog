@@ -74,3 +74,11 @@ h3 {
 .article-separator {
     margin: 0 10px;
 }
+
+.gallery-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+}
