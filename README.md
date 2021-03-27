@@ -1,4 +1,4 @@
-# php-procedural-login
+# php-blog
 Procedural PHP set up supports:
     User creation, login, and logout
     Uploading profile image
