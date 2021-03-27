@@ -1,0 +1,19 @@
+.create-article-title-wrapper,
+.create-article-message-wrapper {
+    display: flex;
+    flex: 1;
+    margin-bottom: 15px;
+}
+
+.create-article-title-wrapper input {
+    display: flex;
+    flex: 1;
+}
+
+.create-article-message-wrapper textarea {
+    display: flex;
+    flex: 1;
+    height: auto;
+    min-height: 50vh;
+    overflow: auto;
+}

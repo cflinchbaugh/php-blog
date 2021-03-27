@@ -1,0 +1,20 @@
+.gallery-upload-form {
+    background-color: var(--blueLight);
+    margin: 15px;
+    padding: 10px;
+}
+
+.gallery-item {
+    display: flex;
+    margin: 15px;
+}
+
+.gallery-image {
+    margin-right: 10px;
+}
+
+
+.gallery-upload-form input {
+    display: flex;
+    margin: 5px 0;
+}

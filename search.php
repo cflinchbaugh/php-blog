@@ -34,7 +34,7 @@
                 while ($row = mysqli_fetch_assoc($result)) {
                     $author = getUserName($conn, $row['article_author']);
                     echo '
-                        <div class="article-wrapper">
+                        <div class="article-wrapper item">
                             <a href="article.php?title=' . $row['article_title'] . '&date=' . $row['article_date'] .'">  
                                 <h3>' . $row['article_title'] . '</h3>
                             </a>

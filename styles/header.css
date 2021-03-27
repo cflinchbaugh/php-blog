@@ -1,0 +1,34 @@
+header {
+    background-color: var(--blueDark);
+    padding: 10px;
+}
+
+.header-contents {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-contents ul {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0 15px 0 0;
+    padding: 0;
+}
+
+.login-input {
+    margin: 2.5px 0;
+}
+
+.login-submit {
+    background-color: var(--pink);
+}
+
+.logout-submit {
+    margin-left: 15px;
+}
+
+.signup-submit {
+    margin: 3px 0 0 15px;
+}

@@ -1,0 +1,16 @@
+
+.user-avatar {
+    border-radius: 100%;
+    width: 100px;
+}
+
+#users-list .user-item {
+    margin-bottom: 10px;
+}
+
+.user-name {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px
+}

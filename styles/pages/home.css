@@ -1,0 +1,5 @@
+.home-page .article-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

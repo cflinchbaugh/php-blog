@@ -1,55 +1,49 @@
+:root {
+    --black: #141414;
+    --pink: #ECCBD9;
+    --white: #E1EFF6;
+    --blueLight: #97D2FB;
+    --blueDark: #83BCFF;
+    --green: #80FFE8;
+}
+
 html {
-    background-color: #f3f3f3;
-}
-
-.logo-wrapper {
-    display: flex;
-}
-
-.header-contents {
-    display: flex;
-    justify-content: space-between;
-
-}
-
-#users-list .user-item {
-    margin-bottom: 5px;
-}
-
-.user-item {
-    border-radius: 5px;
-    background-color: white;
-    padding: 5px;
-}
-
-.user-avatar {
-    border-radius: 100%;
-    width: 100px;
-}
-
-#profile-upload-form {
-    background-color: white;
-    padding: 5px;
+    background-color: var(--white);
+    color: var(--black);
 }
 
 body {
-    background-color: #f3f3f3;
+    background-color: var(--white);
+    margin: 0;
 }
 
+main {
+    padding: 10px;
+}
+
+#profile-upload-form {
+    background-color: var(--white);
+    padding: 15px;
+}
+
+#profile-delete-form {
+    text-align: center;
+}
+
+
+h2,
 h3 {
     margin: 0;
 }
 
 .articles-wrapper {
-    width: 900px;
     padding: 0 15px;
 }
 
 .article-wrapper {
     margin-bottom: 30px;
     padding: 10px;
-    background: white;
-    border: solid gray 1px;
+    background: var(--white);
     border-radius: 5px;
 }
 

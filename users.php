@@ -7,9 +7,10 @@
 ?>
 
 <?php
-    echo "<h2>Users</h2>";
+    echo "<h1>Users</h1>";
     
-    $sql = "SELECT * FROM users";
+    $sql = "SELECT * FROM users
+        ORDER BY user_name ASC";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) { //if there are results
         echo "<div id='users-list'>";
@@ -19,13 +20,13 @@
             $resultImage = mysqli_query($conn, $sqlImage);
 
             while ($rowImage = mysqli_fetch_assoc($resultImage)) {
-                echo"<div class='user-item'>";
+                echo"<div class='user-item item'>";
                     if ($rowImage['status'] === '1') {
                         echo "<img class='user-avatar' src='uploads/profile_".$id.".jpg'>";
                     } else {
                         echo "<img class='user-avatar' src='uploads/profile_default.jpg'>";
                     }
-                    echo $row['user_name'];
+                    echo "<div class='user-name'>Name: " . $row['user_name'] . "</div>";
                 echo"</div>";
             }
         }
