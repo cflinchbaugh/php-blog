@@ -3,10 +3,10 @@
         // echo '<a  href="./article_create.php">Create Article</a>';
         echo '
             <form class="article-create" action="./article_create.php">
-                <input type="submit" value="Create Article" />
+                <button type="submit">Create Article</button>
             </form>
-        ';
-    }
+            ';
+        }
 ?>
 
 
@@ -35,13 +35,13 @@
                         <a href="article.php?id=' . $row['article_id'] .
                             '&title=' . $row['article_title'] .
                         '">
-                            <h3>' . $row['article_title'] . '</h3>
+                            <h3 class="article-title">' . $row['article_title'] . '</h3>
                         </a>
                         <div class="article-text">' . $row['article_text'] . '</div>
                         <div class="article-info-wrapper">
-                            <div class="article_author">' . $author . '</div>
+                            <div class="article-author">' . $author . '</div>
                             <div class="article-separator"> - </div>
-                            <div class="article_date">' . $row['article_date'] . '</div>
+                            <div class="article-date">' . $row['article_date'] . '</div>
                         </div>
                     </div>
                 ';

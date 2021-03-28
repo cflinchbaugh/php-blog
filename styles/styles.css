@@ -1,15 +1,18 @@
 :root {
-    --black: #141414;
+    --black: #4c4c4c;
+    --blackAbsolute: #000;
     --pink: #ECCBD9;
     --white: #E1EFF6;
     --blueLight: #97D2FB;
     --blueDark: #83BCFF;
-    --green: #80FFE8;
+    --green: #5df1d6;
 }
 
 html {
     background-color: var(--white);
     color: var(--black);
+    font-family: 'Roboto', serif;
+    font-size: 20px;
 }
 
 body {
@@ -18,7 +21,11 @@ body {
 }
 
 main {
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1200px;
     padding: 10px;
+    width: 80vw;
 }
 
 #profile-upload-form {
@@ -36,43 +43,40 @@ h3 {
     margin: 0;
 }
 
-.articles-wrapper {
-    padding: 0 15px;
+
+/* Interactive Elements */
+a,
+button {
+    transition: all 0.25s;
 }
 
-.article-wrapper {
-    margin-bottom: 30px;
-    padding: 10px;
-    background: var(--white);
+a {
+    color: var(--black);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--blackAbsolute);
+    text-decoration: underline;
+}
+
+button {
+    border: solid 1px var(--black);
     border-radius: 5px;
+    background-color: var(--green);
+    color: var(--black);
+    padding: 5px 10px;
 }
 
-.article_title {
-    font-weight: bold;
-    font-size: large;
-}
-.article_text {
-    font-size: medium;
-}
-
-.article-info-wrapper {
-    display: flex;
-    align-items: baseline;
-}
-.article_author {
-    font-size: small;
-}
-.article_date {
-    font-size: small;
-}
-.article-separator {
-    margin: 0 10px;
+button:hover {
+    background-color: var(--pink);
+    border: solid 1px var(--blackAbsolute);
+    color: var(--blackAbsolute);
+    cursor: pointer;
 }
 
-.gallery-image {
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100px;
-    width: 100px;
+input {
+    border: solid 1px var(--black);
     border-radius: 5px;
+    padding: 5px 10px;
 }

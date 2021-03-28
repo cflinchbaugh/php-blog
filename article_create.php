@@ -47,8 +47,16 @@
             </div>
             ';
     ?> 
-
-    <button type="submit" 
+    
+    <button 
+        type="button"
+        onClick="document.location.href='./articles.php';">
+        Cancel
+    </button>
+    
+    <button 
+        class="create-article-submit"
+        type="submit" 
         name="article-create-submit">
         Post
     </button>

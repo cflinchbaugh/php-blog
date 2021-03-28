@@ -27,12 +27,12 @@
                 $author = getUserName($conn, $row['article_author']);
 
                 echo '<div class="article-wrapper item">
-                        <h3>' . $row['article_title'] . '</h3>
+                        <h3 class="article-title">' . $row['article_title'] . '</h3>
                         <div class="article-text">' . $row['article_text'] . '</div>
                         <div class="article-info-wrapper">
-                            <div class="article_author">' . $author . '</div>
+                            <div class="article-author">' . $author . '</div>
                             <div class="article-separator"> - </div>
-                            <div class="article_date">' . $row['article_date'] . '</div>
+                            <div class="article-date">' . $row['article_date'] . '</div>
                         </div>
                     </div>
                 ';

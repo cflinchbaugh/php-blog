@@ -26,7 +26,10 @@
                     } else {
                         echo "<img class='user-avatar' src='uploads/profile_default.jpg'>";
                     }
-                    echo "<div class='user-name'>Name: " . $row['user_name'] . "</div>";
+                    echo "<div class='user-details'>
+                            <div class='user-name'>Name: " . $row['user_name'] . "</div>
+                            <div class='user-email'>Email: " . $row['user_email'] . "</div>
+                        </div>";
                 echo"</div>";
             }
         }

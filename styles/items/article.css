@@ -1,0 +1,27 @@
+.article-wrapper {
+    margin-bottom: 30px;
+}
+
+.article-title {
+    font-weight: bold;
+    font-size: large;
+    margin-bottom: 10px;
+}
+.article-text {
+    font-size: medium;
+    line-height: 1.5;
+}
+
+.article-info-wrapper {
+    display: flex;
+    align-items: baseline;
+}
+.article-author {
+    font-size: small;
+}
+.article-date {
+    font-size: small;
+}
+.article-separator {
+    margin: 0 10px;
+}

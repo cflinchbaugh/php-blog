@@ -40,7 +40,7 @@
                 mysqli_stmt_execute($stmtInsertArticle); //execute
                 $result = mysqli_stmt_get_result($stmtInsertArticle);
 
-                header("Location: ../article_create.php?signup=success");
+                header("Location: ../articles.php?artcileCreate=success");
                     
                 exit();
             }
